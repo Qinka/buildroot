@@ -14,6 +14,7 @@ config BR2_PACKAGE_PERFTEST_ARCH_SUPPORTS
 	default y if BR2_s390x
 	default y if BR2_sparc || BR2_sparc64
 	default y if BR2_riscv
+	default y if BR2_loongarch_64 || BR2_loongarch_32
 	depends on BR2_USE_MMU # rdma-core
 	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # rdma-core
 

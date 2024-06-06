@@ -20,6 +20,7 @@ config BR2_PACKAGE_Z3_ARCH_SUPPORTS
 	default y if BR2_sparc || BR2_sparc64
 	default y if BR2_x86_64
 	# BR2_xtensa supports only uclibc which does not have fenv.h
+	default y if BR2_loongarch_64 || BR2_loongarch_32
 
 config BR2_PACKAGE_Z3
 	bool "z3"

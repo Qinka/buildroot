@@ -9,6 +9,7 @@ config BR2_PACKAGE_WOLFSSL_ASM_SUPPORTS
 	default y if BR2_mips || BR2_mipsel
 	default y if BR2_riscv && BR2_RISCV_ISA_RVM
 	default y if BR2_s390x
+	default y if BR2_loongarch_64 || BR2_loongarch_32
 
 config BR2_PACKAGE_WOLFSSL
 	bool "wolfssl"

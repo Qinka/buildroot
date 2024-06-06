@@ -22,6 +22,7 @@ config BR2_PACKAGE_LIBUCONTEXT_ARCH_SUPPORTS
 	default y if BR2_sh4aeb
 	default y if BR2_i386
 	default y if BR2_x86_64
+	default y if BR2_loongarch_64 || BR2_loongarch_32
 	depends on BR2_TOOLCHAIN_USES_MUSL
 
 config BR2_PACKAGE_LIBUCONTEXT

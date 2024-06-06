@@ -1030,6 +1030,9 @@ case $cpu-$vendor in
 		cpu=powerpc
 		basic_os=${basic_os}"spe"
 		;;
+	loongarch64-*)
+		cpu=loongarch64
+		;;
 	mips3*-*)
 		cpu=mips64
 		;;
@@ -1185,6 +1188,7 @@ case $cpu-$vendor in
 			| k1om \
 			| le32 | le64 \
 			| lm32 \
+			| loongarch32 | loongarch64 \
 			| m32c | m32r | m32rle \
 			| m5200 | m68000 | m680[012346]0 | m68360 | m683?2 | m68k \
 			| m6811 | m68hc11 | m6812 | m68hc12 | m68hcs12x \
@@ -1257,7 +1261,7 @@ case $cpu-$vendor in
 				;;
 
 			*)
-				echo Invalid configuration \`"$1"\': machine \`"$cpu-$vendor"\' not recognized 1>&2
+				echo Invalid configuration \`"$1"\': machine \`"$cpu-$vendor"\' not recognizedx 1>&2
 				exit 1
 				;;
 		esac

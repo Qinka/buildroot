@@ -9,6 +9,7 @@ config BR2_PACKAGE_HOST_RUSTC_ARCH_SUPPORTS
 	default y if BR2_HOSTARCH = "s390x"
 	default y if BR2_HOSTARCH = "x86"
 	default y if BR2_HOSTARCH = "x86_64"
+	default y if BR2_HOSTARCH = "loongarch64"
 
 # The pre-built Rust standard library is only available for a number
 # of architectures/C libraries combinations, with different levels of
@@ -59,6 +60,8 @@ config BR2_PACKAGE_HOST_RUSTC_TARGET_TIER2_HOST_TOOLS_PLATFORMS
 	default y if BR2_s390x && BR2_TOOLCHAIN_USES_GLIBC
 	# x86_64-unknown-linux-musl
 	default y if BR2_x86_64 && BR2_TOOLCHAIN_USES_MUSL
+	# loongarch64-unknown-linux-gnu
+	default y if BR2_loongarch_64 && BR2_TOOLCHAIN_USES_GLIBC
 
 # The below entries match Tier 2 platforms without host tools as
 # described at

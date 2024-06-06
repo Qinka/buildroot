@@ -8,6 +8,7 @@ config BR2_PACKAGE_BPFTOOL_ARCH_SUPPORTS
 	default y if BR2_riscv
 	default y if BR2_sparc || BR2_sparc64
 	default y if BR2_s390x
+	default y if BR2_loongarch_64 || BR2_loongarch_32
 
 config BR2_PACKAGE_BPFTOOL
 	bool "bpftool"

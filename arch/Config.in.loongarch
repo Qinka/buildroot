@@ -1,0 +1,80 @@
+choice
+	prompt "Target Architecture Variant"
+	help
+	  Specific CPU variant to use
+
+config BR2_loongarch_64
+	bool "loongarch64"
+	select BR2_LOONGARCH_64
+	select BR2_LOONGARCH_64_NEW
+
+config BR2_loongarch_32
+	bool "loongarch32"
+	select BR2_LOONGARCH_32
+
+endchoice
+
+config BR2_ARCH
+	default "loongarch64"    if BR2_loongarch_64
+	default "loongarch32"    if BR2_loongarch_32
+
+config BR2_NORMALIZED_ARCH
+	default "loongarch"
+
+config BR2_ENDIAN
+	default "LITTLE"
+
+choice
+	prompt "Target Architecture Size"
+	default BR2_LOONGARCH_64
+
+config BR2_LOONGARCH_64
+	bool "64-bit"
+	select BR2_ARCH_IS_64
+
+config BR2_LOONGARCH_32
+	bool "32-bit"
+
+endchoice
+
+choice
+	prompt "Which World"
+	default BR2_LOONGARCH_64_NEW
+
+config BR2_LOONGARCH_64_NEW
+	bool "new"
+	help
+	  New world
+
+config BR2_LOONGARCH_64_OLD
+	bool "old"
+	help
+	  Old world
+
+endchoice
+
+choice
+	prompt "Target ABI"
+	default BR2_LOONGARCH_LP64D if BR2_ARCH_IS_64 && BR2_LOONGARCH_64_NEW
+	default BR2_LOONGARCH_LP64  if BR2_ARCH_IS_64 && BR2_LOONGARCH_64_OLD
+
+config BR2_LOONGARCH_LP64D
+	bool "lp64d"
+	depends on BR2_ARCH_IS_64
+
+config BR2_LOONGARCH_LP64
+	bool "lp64"
+	depends on BR2_ARCH_IS_64
+
+config BR2_LOONGARCH_32UNKNWON
+	bool "unknown"
+	depends on !BR2_ARCH_IS_64
+
+endchoice
+
+config BR2_GCC_TARGET_ARCH
+	default "loongarch64" if BR2_LOONGARCH_LP64D ||  BR2_LOONGARCH_LP64
+	default "unknown" if BR2_LOONGARCH_32UNKNWON
+
+config BR2_READELF_ARCH_NAME
+	default "LoongArch"

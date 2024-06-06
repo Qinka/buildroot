@@ -8,6 +8,7 @@ config BR2_PACKAGE_PHP_ARCH_SUPPORTS
 	default y if BR2_powerpc || BR2_powerpc64 || BR2_powerpc64le
 	default y if BR2_RISCV_64
 	default y if BR2_s390x
+	default y if BR2_loongarch_64 || BR2_loongarch_32
 	default y if BR2_TOOLCHAIN_HAS_UCONTEXT
 	default y if BR2_PACKAGE_LIBUCONTEXT_ARCH_SUPPORTS
 

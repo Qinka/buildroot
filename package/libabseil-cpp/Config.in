@@ -13,6 +13,7 @@ config BR2_PACKAGE_LIBABSEIL_CPP_ARCH_SUPPORTS
 	default y if BR2_sh
 	default y if BR2_sparc || BR2_sparc64
 	default y if BR2_x86_64
+	default y if BR2_loongarch_64 || BR2_loongarch_32
 	depends on BR2_TOOLCHAIN_HAS_UCONTEXT
 
 config BR2_PACKAGE_LIBABSEIL_CPP
